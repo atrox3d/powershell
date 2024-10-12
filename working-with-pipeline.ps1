@@ -214,5 +214,19 @@ Get-ChildItem .\jacked-programmer\*.ps1 | foreach { & $_.fullname }
 get-help about_Logical_Operators
 Get-ChildItem .\jacked-programmer\*.ps1 | foreach {$_}
 Get-ChildItem .\jacked-programmer\*.ps1 | foreach {$_.name}
-Get-ChildItem .\jacked-programmer\*.ps1 | foreach { if  (!($_.name -like 'measure*')) { & $_.fullname} }
-
+Get-ChildItem .\jacked-programmer\*.ps1 | foreach { if(!($_.name -like 'measure*')){ & $_.fullname} }
+# 
+# filter processes with where
+#
+Get-Process | where {$_.CPU -gt 50}
+#
+# filter files recursively by size
+#
+dir -Path $HOME
+dir -Path $HOME -Recurse
+dir -Path $HOME -Recurse | where {$_.Length -gt 20mb}
+dir -Path $HOME -Recurse | where {$_.Length -gt 50mb} | measure
+#
+#
+#
+Get-TimeZone -ListAvailable
