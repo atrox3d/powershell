@@ -7,12 +7,12 @@ for($i=0;$i -lt 10;$i++){
     $i
 }
 
-$filepath = 'names.txt'
+$filepath = "$PSScriptRoot\names.txt"
 $names = Get-Content -Path $filepath
 ""
 for($i=0;$i -lt $names.Length;$i++){
     $names[$i]
-    Get-Content -Path "names\$($names[$i])\config.txt"
+    Get-Content -Path "$PSScriptRoot\names\$($names[$i])\config.txt"
 }
 
 ""
