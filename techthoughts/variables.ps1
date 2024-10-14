@@ -62,8 +62,4 @@ dir env:
 
 #-----------------------------------------------------------------
 # putting all together
-$path = Read-Host -Prompt 'path to scan for large files:'
-$allFiles = Get-ChildItem -Path $path -Recurse
-$largerFiles = $allFiles | Where-Object {$_.Length -gt 100mb}
-$count = $largerFiles | Measure-Object | Select-Object -ExpandProperty Count
-Write-Output "you have $count large files"
+ 
