@@ -30,12 +30,17 @@ function Get-PublicIP {
             Uri         = $URI
             ErrorAction = 'Stop'
         }
-        $publicIP = Invoke-WebRequest @InvokeRestMethodSplat
+        $response = Invoke-WebRequest @InvokeRestMethodSplat
+        if($PSBoundParameters.ContainsKey('debug')){
+            Write-Debug "--- RESPONSE ----"
+            Write-Output $response
+            Write-Debug "--- /RESPONSE ---"
+        }
     }
     catch {
         Write-Error $_
     }
-    return $publicIP.Content
+    return $response.Content
 }
-# Get-PublicIP
+Get-PublicIP -Debug
 
