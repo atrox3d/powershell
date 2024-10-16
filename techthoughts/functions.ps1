@@ -19,7 +19,12 @@ Remove-Item Function:Get-PublicIP -ErrorAction SilentlyContinue
     https://github.com/rdegges/ipify-api
 #>
 function Get-PublicIP {
+    [CmdletBinding()]
+    param (
+    )
+
     $URI = 'https://api.ipify.org'
+    Write-Verbose "Pulling public IP from $URI"
     try {
         $InvokeRestMethodSplat = @{
             Uri         = $URI
