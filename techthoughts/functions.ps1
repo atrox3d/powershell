@@ -1,6 +1,9 @@
 Set-StrictMode -Version Latest
 Clear-Host
 
+
+Remove-Item Function:Get-PublicIP -ErrorAction SilentlyContinue
+
 <#
 .SYNOPSIS
     returns your ip public address
@@ -29,6 +32,5 @@ function Get-PublicIP {
     }
     return $publicIP.Content
 }
-
-Get-PublicIP
+# Get-PublicIP
 
